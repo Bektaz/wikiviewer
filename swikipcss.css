@@ -1,0 +1,25 @@
+.resultsdiv{
+    margin-top: 10px;
+}
+.eachresdiv{
+     border-radius: 10px;
+     background-color: white;
+}
+.titlepar{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.autocompletediv{
+     border-radius: 4px;
+     background-color: white;    
+}
+.inputfielddiv{
+    padding: 0px;
+}
+.maincontdiv{
+    margin-bottom: 40px;
+}
+.shadowtoeachresdiv{
+    box-shadow: 0 0 10px 0;
+}

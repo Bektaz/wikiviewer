@@ -1,0 +1,52 @@
+<!DOCTYPE>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="swikipcss.css">
+		<script src="https://code.angularjs.org/1.4.8/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
+	</head>
+	<body style="background-color:#EDEAC2">
+        <h3 class="text-center">FreeCodeCamp - Wikipedia Viewer</h3>
+        <!--main view for wikiApp module-->	
+        <div ng-app='wikiApp' class="container">
+            <!--maincontroller-->
+            <div class="maincontdiv" ng-controller='maincontroller'>                
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
+                        <div class="row">
+                            <!--div for input filed with ng-submit for enter keypress and ng-change to
+track the change in input field-->	
+                            <div class="col-md-12 inputfielddiv">
+                                <form ng-submit="enterfunc()">
+                                    <input type="search" class="form-control" ng-change="change()" ng-model='searchWord' placeholder="Enter your search here">
+                                </form>
+                            </div>
+                            <!--div for autocomplete ng-repeat ng-if and ng-click which passes number of
+element in array to $scope.click function-->	
+                            <div class="col-md-12 autocompletediv" ng-if='acIsVis===true'>
+                                <a href="#" ng-repeat='el in arr'>
+                                    <p class="text-left" ng-click="clickfunc(el)">
+                                        {{wR.query.search[el].title}}
+                                    </p> 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--div for result of search with ng-repeat, ng-if, ng-museenter and ng-mouseleave for
+shadow effect-->	
+                <div class="row resultsdiv" ng-repeat='el in arr'>
+                    <div class="col-md-8 col-md-offset-2 eachresdiv" ng-if='vis===true' ng-mouseenter="myVar='shadowtoeachresdiv'" ng-mouseleave="myVar=''" ng-class="myVar">
+                        <a target="_blank" href="https://en.wikipedia.org/wiki/{{wR.query.search[el].title}}">
+                            <p class="text-left titlepar">{{wR.query.search[el].title}}</p>
+                        </a>
+                            <p class="text-left">{{wR.query.search[el].snippet}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src='swikipjs.js'></script>
+	</body>
+</html>
